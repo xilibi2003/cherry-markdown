@@ -16,6 +16,8 @@ var CustomHookA = Cherry.createSyntaxHook('codeBlock', Cherry.constants.HOOKS_TY
 
 var basicConfig = {
   id: 'markdown',
+  isCache: true,
+  key: 'markdownText',
   externals: {
     echarts: window.echarts,
     katex: window.katex,

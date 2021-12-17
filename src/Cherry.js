@@ -237,6 +237,13 @@ export default class Cherry extends CherryStatic {
   }
 
   /**
+   * 清除缓存
+   */
+  clearCache() {
+    localStorage.removeItem(this.options.key);
+  }
+
+  /**
    * 覆盖编辑区的内容
    * @param {string} content markdown内容
    * @returns
@@ -380,6 +387,9 @@ export default class Cherry extends CherryStatic {
    * @returns {import('@/Editor').default}
    */
   createEditor() {
+    if (localStorage.getItem(this.options.key) && this.options.isCache) {
+      this.options.value = localStorage.getItem(this.options.key);
+    }
     const textArea = createElement('textarea', '', { id: 'code', name: 'code' });
     textArea.textContent = this.options.value;
     const editor = createElement('div', 'cherry-editor');
@@ -435,7 +445,10 @@ export default class Cherry extends CherryStatic {
    */
   initText(codemirror) {
     try {
-      const markdownText = codemirror.getValue();
+      let markdownText = codemirror.getValue();
+      if (localStorage.getItem(this.options.key) && this.options.isCache) {
+        markdownText = localStorage.getItem(this.options.key);
+      }
       const html = this.engine.makeHtml(markdownText);
       this.previewer.update(html);
       if (this.options.callback.afterInit) {
@@ -459,6 +472,9 @@ export default class Cherry extends CherryStatic {
       }
       this.timer = setTimeout(() => {
         const markdownText = codemirror.getValue();
+        if (this.options.isCache) {
+          localStorage.setItem(this.options.key, markdownText);
+        }
         const html = this.engine.makeHtml(markdownText);
         this.previewer.update(html);
         if (this.options.callback.afterChange) {
