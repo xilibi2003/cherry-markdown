@@ -49,7 +49,9 @@
   line-height: $lineHeight;
   color: $fontColor;
   background: $editorBg;
-  box-shadow: $shadow;
+  // box-shadow: $shadow;
+  border: 1px solid #d1d5da;
+  border-radius: 3px;
 
   .ch-icon {
     vertical-align: middle;
@@ -177,8 +179,9 @@
   box-sizing: border-box;
   z-index: 1;
   user-select: none;
-  box-shadow: $toolbarShadowLight;
+  // box-shadow: $toolbarShadowLight;
   background: $toolbarBgLight;
+  border-bottom: 1px solid #d1d5da;
 
   [data-toolbar-theme='dark'] & {
     background: $toolbarBgDark;

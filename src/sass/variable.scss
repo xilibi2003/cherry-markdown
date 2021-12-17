@@ -11,15 +11,15 @@ $monospaceFont: 'Menlo', 'Liberation Mono', 'Consolas', 'DejaVu Sans Mono', 'Ubu
 $fontSize: 16px;
 $fontSizeLarge: 18px;
 $lineHeight: 27px;
-$editorBg: #f8fafb;
-$previewBg: #f8fafb;
+$editorBg: #FAFBFC;
+$previewBg: #FAFBFC;
 $fontColor: #3f4a56;
 $linkColor: #3582fb;
 $linkHoverColor: #056bad;
 $borderColor: #dfe6ee;
 $toolbarSplitColor: #dfe6ee;
 $toolbarFontSize: 14px;
-$toolbarHeight: 48px;
+$toolbarHeight: 36px;
 $elementGap: 16px;
 $elementLittleGap: 12px;
 $borderRadius: 3px;
@@ -74,7 +74,7 @@ $toolbarBtnHoverColorDark: #fff;
 $toolbarBtnDisabledDark: #ccc;
 
 // 亮色
-$toolbarBgLight: white;
+$toolbarBgLight: #F6F8FA;
 $toolbarShadowLight: $shadow;
 $toolbarBtnBgLight: transparent;
 $toolbarBtnColorLight: #3f4a56;
